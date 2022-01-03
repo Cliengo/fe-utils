@@ -1,0 +1,34 @@
+{
+  "name": "@cliengo/fe-utils",
+  "version": "1.0.0",
+  "description": "Javascript shared methods",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "babel lib --out-dir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cliengo/fe-utils.git"
+  },
+  "keywords": [
+    "cliengo",
+    "fe",
+    "utils",
+    "javascript"
+  ],
+  "author": "Jorge Figueroa (Guate)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cliengo/fe-utils/issues"
+  },
+  "homepage": "https://github.com/Cliengo/fe-utils#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.16.7",
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7"
+  }
+}
