@@ -7,7 +7,7 @@ var elementStyleDefinitor = function elementStyleDefinitor(htmlElement) {
 };
 
 var printClipboardException = function printClipboardException(error) {
-  console.error('Unable to copy', error);
+  console.error('Unable to copy,', error);
 };
 
 var fallbackCopyToClipboard = function fallbackCopyToClipboard(content) {
