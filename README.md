@@ -36,6 +36,22 @@ async function myFunction() {
   }
 }
 ```
+
+***
+### `isEmpty`
+Takes a value and checks if it's any kind of empty
+
+```javascript
+import { isEmpty } from '@cliengo/fe-utils';
+
+async function myFunction() {
+  const value = isEmpty('Hello world');
+  //value = false
+
+  const value2 = isEmpty('');
+  //value2 = true
+}
+```
 ***
 ### `IframeMessagePublisher`
 Its a Class which uses the singleton pattern to set a unique instance with an initial configuration ready to be used across your application.
