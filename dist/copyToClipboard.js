@@ -34,6 +34,13 @@ var fallbackCopyToClipboard = function fallbackCopyToClipboard(content) {
   document.removeChild(dummyTextArea);
   return hasSuccess;
 };
+/**
+ * Takes a value to send it to clipboard asynchronously and returns a boolean to indicates success or failure.
+ *
+ * @param {string} content - Value which will send to clipboard.
+ * @returns (boolean) Response of the operation.
+ */
+
 
 var copyToClipboard = function copyToClipboard(content) {
   if (!navigator.clipboard) {
