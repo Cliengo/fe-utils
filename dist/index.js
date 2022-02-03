@@ -6,8 +6,11 @@ var copyToClipboard = require('./copyToClipboard');
 
 var isEmpty = require('./isEmpty');
 
+var Analytics = require('./analytics');
+
 module.exports = {
   IframeMessagePublisher: IframeMessagePublisher,
   copyToClipboard: copyToClipboard,
-  isEmpty: isEmpty
+  isEmpty: isEmpty,
+  Analytics: Analytics
 };

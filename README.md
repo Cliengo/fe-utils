@@ -97,6 +97,81 @@ IframeMessagePublisher.postMessage('do-stuff-with-params', {
   id: 12345
 });
 ```
+***
+### `Analytics`
+
+*methods*
+
+**`initialize`**
+
+Initialize the analytics tracking
+
+params: `Object{segmentWriteKey, sendAnalytics, account, user}`
+
+properties:
+| Name   | Required | Type   | Default | Description                                                      |
+|--------|----------|--------|---------|------------------------------------------------------------------|
+| segmentWriteKey | Yes      | string | N/A     | key for tracking |
+| sendAnalytics | No       | string   | 'YES'      | flag to allow/disallow analytics tracking               |
+| account | Yes       | JSON   | N/A      | account company information               |
+| ser | Yes       | JSON   | N/A      | user operator information             |
+
+#### Usage
+```javascript
+import { Analytics } from '@cliengo/fe-utils';
+
+// Initialize the instance
+Analytics.initialize({
+  segmentWriteKey: 'XXXXXXXXX',
+  sendAnalytics: 'YES',
+  account: accountData,
+  user: useData
+});
+```
+
+**`trackEvent`**
+
+Wrapper around the Segment's trackEvent method.
+it is how you tell Segment about which actions your users are performing on your site.
+
+params: `Object{eventName, ...eventProps}`
+
+properties:
+| Name   | Required | Type   | Default | Description                                                      |
+|--------|----------|--------|---------|------------------------------------------------------------------|
+| eventName | Yes      | string | N/A     | name of the event |
+
+**rest of the properties depends on the case**
+#### Usage
+```javascript
+import { Analytics } from '@cliengo/fe-utils';
+
+Analytics.trackEvent({
+  eventName: 'user_registration',
+  category: 'register',
+  action: 'user_registration'
+});
+```
+
+**`trackPage`**
+
+Wrapper around method Segment's page method.
+it lets you record page views on your website, along with optional information about the page being viewed.
+
+params:
+| Name   | Required | Type   | Default | Description                                                      |
+|--------|----------|--------|---------|------------------------------------------------------------------|
+| path | Yes      | string | N/A     | path of page |
+| websiteId | No      | string | " " or undefined    | Id of selected website|
+| url | No      | string | window.location.href     | Url of current page |
+
+**rest of the properties depends on the case**
+#### Usage
+```javascript
+import { Analytics } from '@cliengo/fe-utils';
+
+Analytics.trackPage('/live/visitors');
+```
 
 ***
 
