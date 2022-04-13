@@ -65,23 +65,59 @@ This was developed thinking on make the iframe communication with its parent muc
 Initialize the instance with the configuration which will be used in the whole application
 
 params:
-| Name     | Required | Type   | Default | Description                                 |
-|----------|----------|--------|---------|---------------------------------------------|
-| senderId | Yes      | string | N/A     | Indicates the name of the child application |
-| target   | No       | string | '*'     | Indicates the URI of the parent             |
-
+<table>
+<tr style="border-bottom: 1px solid">
+  <td>Name</td>
+  <td>Required</td>
+  <td>Type</td>
+  <td>Default</td>
+  <td>Desciption</td>
+</tr>
+<tr>
+  <td>senderId</td>
+  <td>Yes</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>Indicates the name of the child application</td>
+</tr>
+<tr>
+  <td>target</td>
+  <td>No</td>
+  <td>string</td>
+  <td>'*'</td>
+  <td>Indicates the URI of the parent</td>
+</tr>
+</table>
 
 **`postMessage`**
 
 Send messages to parent
 
 params:
-| Name   | Required | Type   | Default | Description                                                      |
-|--------|----------|--------|---------|------------------------------------------------------------------|
-| action | Yes      | string | N/A     | It's the key of the action which will be validated in the parent |
-| params | No       | JSON   | {}      | Send additional data to the parent ex. IDs & flags               |
 
-
+<table>
+<tr style="border-bottom: 1px solid">
+  <td>Name</td>
+  <td>Required</td>
+  <td>Type</td>
+  <td>Default</td>
+  <td>Desciption</td>
+</tr>
+<tr>
+  <td>action</td>
+  <td>Yes</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>It's the key of the action which will be validated in the parent</td>
+</tr>
+<tr>
+  <td>params</td>
+  <td>No</td>
+  <td>JSON</td>
+  <td>{}</td>
+  <td>Send additional data to the parent ex. IDs & flags</td>
+</tr>
+</table>
 
 #### Usage
 ```javascript
@@ -109,12 +145,44 @@ Initialize the analytics tracking
 params: `Object{segmentWriteKey, sendAnalytics, account, user}`
 
 properties:
-| Name   | Required | Type   | Default | Description                                                      |
-|--------|----------|--------|---------|------------------------------------------------------------------|
-| segmentWriteKey | Yes      | string | N/A     | key for tracking |
-| sendAnalytics | No       | string   | 'YES'      | flag to allow/disallow analytics tracking               |
-| account | Yes       | JSON   | N/A      | account company information               |
-| ser | Yes       | JSON   | N/A      | user operator information             |
+<table>
+<tr style="border-bottom: 1px solid">
+  <td>Name</td>
+  <td>Required</td>
+  <td>Type</td>
+  <td>Default</td>
+  <td>Desciption</td>
+</tr>
+<tr>
+  <td>sendWriteKey</td>
+  <td>Yes</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>key for tracking</td>
+</tr>
+<tr>
+  <td>sendAnalytics</td>
+  <td>No</td>
+  <td>string</td>
+  <td>'YES'</td>
+  <td>flag to allow/disallow analytics tracking</td>
+</tr>
+<tr>
+  <td>account</td>
+  <td>Yes</td>
+  <td>JSON</td>
+  <td>N/A</td>
+  <td>account(company) information</td>
+</tr>
+<tr>
+  <td>user</td>
+  <td>Yes</td>
+  <td>JSON</td>
+  <td>N/A</td>
+  <td>user operator information</td>
+</tr>
+</table>
+
 
 #### Usage
 ```javascript
@@ -134,12 +202,51 @@ Analytics.initialize({
 Wrapper around the Segment's trackEvent method.
 it is how you tell Segment about which actions your users are performing on your site.
 
-params: `Object{eventName, ...eventProps}`
+params: `Object{
+  eventName,
+  category,
+  action,
+  ...moreProps
+}`
 
 properties:
-| Name   | Required | Type   | Default | Description                                                      |
-|--------|----------|--------|---------|------------------------------------------------------------------|
-| eventName | Yes      | string | N/A     | name of the event |
+<table>
+<tr style="border-bottom: 1px solid">
+  <td>Name</td>
+  <td>Required</td>
+  <td>Type</td>
+  <td>Default</td>
+  <td>Desciption</td>
+</tr>
+<tr>
+  <td>eventName</td>
+  <td>Yes</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>Name of the event</td>
+</tr>
+<tr>
+  <td>category</td>
+  <td>No</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>category of the event</td>
+</tr>
+<tr>
+  <td>action</td>
+  <td>No</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>usually matches with eventName</td>
+</tr>
+<tr>
+  <td>label</td>
+  <td>No</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>optional value</td>
+</tr>
+</table>
 
 **rest of the properties depends on the case**
 #### Usage
@@ -159,11 +266,36 @@ Wrapper around method Segment's page method.
 it lets you record page views on your website, along with optional information about the page being viewed.
 
 params:
-| Name   | Required | Type   | Default | Description                                                      |
-|--------|----------|--------|---------|------------------------------------------------------------------|
-| path | Yes      | string | N/A     | path of page |
-| websiteId | No      | string | " " or undefined    | Id of selected website|
-| url | No      | string | window.location.href     | Url of current page |
+<table>
+<tr style="border-bottom: 1px solid">
+  <td>Name</td>
+  <td>Required</td>
+  <td>Type</td>
+  <td>Default</td>
+  <td>Desciption</td>
+</tr>
+<tr>
+  <td>path</td>
+  <td>Yes</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>path of the page</td>
+</tr>
+<tr>
+  <td>websiteId</td>
+  <td>No</td>
+  <td>string</td>
+  <td>" " or undefined</td>
+  <td>id of selected website</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>No</td>
+  <td>string</td>
+  <td>window.location.href</td>
+  <td>url of current page</td>
+</tr>
+</table>
 
 **rest of the properties depends on the case**
 #### Usage

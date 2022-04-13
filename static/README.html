@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+        <html lang="en" dir="ltr">
+            <head>
+              <link rel="icon" type="image/png" href="https://res.cloudinary.com/hbrrdozyj/image/upload/c_scale,w_15/v1615395123/favicon-32x32_phoaj5.png">
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="css/style.css">
+                <title>Cliengo fe-utils | Readme</title>
+            </head>
+            <body>
+                <header>
+                    <a class="push-right hide-large menu-btn" href="javascript:void(0)" onclick="openSidebarMenu()"><img src="css/images/menu-white.svg" alt=""></a>
+            <div class="search-container">
+                <input type="text" id="search-text" name="search-text" placeholder="Search" class="search-text">
+                <button class="search-btn" onclick="javascript:search()">
+                    <img src="css/images/search-black.svg" alt="">
+                </button>
+            </div>
+        
+                    <a href="index.html" class="site-title">Cliengo fe-utils</a>
+                </header>
+
+                
+            <nav class="sidebar collapse animate-left" id="menuSidebar">
+                <div class="text-right">
+                    <a href="javascript:void(0)" onclick="closeSidebarMenu()" class="close-menu hide-large">
+                        <img src="css/images/close-black.svg" alt="">
+                    </a>
+                </div><a href="README.html" class="menu-item active ">Readme</a>
+            </nav>
+        
+                <div class="main-content">
+                    <div class="markdown-body" id="markdown-body">
+                        <h1 id="fe-utils-frontend-utils">fe-utils (Frontend utils)</h1>
+<p>Js library to share useful methods</p>
+<h2 id="installation">Installation</h2>
+<pre><code class="language-bash">npm install git+https://github.com/Cliengo/fe-utils.git</code></pre>
+<p><strong>or</strong></p>
+<pre><code class="language-bash">yarn add git+https://github.com/Cliengo/fe-utils.git</code></pre>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-javascript">import { method } from &#39;@cliengo/fe-utils&#39;;
+
+method();</code></pre>
+<h2 id="available-functionality">Available functionality</h2>
+<hr>
+<h3 id="copytoclipboard"><code>copyToClipboard</code></h3>
+<p>Takes a value to send it to clipboard asynchronously and returns a boolean to indicates success or failure</p>
+<pre><code class="language-javascript">import { copyToClipboard } from &#39;@cliengo/fe-utils&#39;;
+
+async function myFunction() {
+  const hasSuccess = copyToClipboard(&#39;Hello world&#39;);
+  if (hasSuccess) {
+    // ...do stuff
+  }
+}</code></pre>
+<hr>
+<h3 id="isempty"><code>isEmpty</code></h3>
+<p>Takes a value and checks if it&#39;s any kind of empty</p>
+<pre><code class="language-javascript">import { isEmpty } from &#39;@cliengo/fe-utils&#39;;
+
+async function myFunction() {
+  const value = isEmpty(&#39;Hello world&#39;);
+  //value = false
+
+  const value2 = isEmpty(&#39;&#39;);
+  //value2 = true
+}</code></pre>
+<hr>
+<h3 id="iframemessagepublisher"><code>IframeMessagePublisher</code></h3>
+<p>Its a Class which uses the singleton pattern to set a unique instance with an initial configuration ready to be used across your application.</p>
+<p>This was developed thinking on make the iframe communication with its parent much easier.</p>
+<p><em>methods</em></p>
+<p><strong><code>setInstance</code></strong></p>
+<p>Initialize the instance with the configuration which will be used in the whole application</p>
+<p>params:</p>
+<table>
+<tr style="border-bottom: 1px solid">
+  <td>Name</td>
+  <td>Required</td>
+  <td>Type</td>
+  <td>Default</td>
+  <td>Desciption</td>
+</tr>
+<tr>
+  <td>senderId</td>
+  <td>Yes</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>Indicates the name of the child application</td>
+</tr>
+<tr>
+  <td>target</td>
+  <td>No</td>
+  <td>string</td>
+  <td>'*'</td>
+  <td>Indicates the URI of the parent</td>
+</tr>
+</table>
+
+<p><strong><code>postMessage</code></strong></p>
+<p>Send messages to parent</p>
+<p>params:</p>
+<table>
+<tr style="border-bottom: 1px solid">
+  <td>Name</td>
+  <td>Required</td>
+  <td>Type</td>
+  <td>Default</td>
+  <td>Desciption</td>
+</tr>
+<tr>
+  <td>action</td>
+  <td>Yes</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>It's the key of the action which will be validated in the parent</td>
+</tr>
+<tr>
+  <td>params</td>
+  <td>No</td>
+  <td>JSON</td>
+  <td>{}</td>
+  <td>Send additional data to the parent ex. IDs & flags</td>
+</tr>
+</table>
+
+<h4 id="usage-1">Usage</h4>
+<pre><code class="language-javascript">import { IframeMessagePublisher } from &#39;@cliengo/fe-utils&#39;;
+
+// Initialize the instance
+IframeMessagePublisher.setInstance(&#39;my-project&#39;);
+
+// Use where you need
+IframeMessagePublisher.postMessage(&#39;do-stuff&#39;);
+IframeMessagePublisher.postMessage(&#39;do-stuff-with-params&#39;, {
+  refresh: true,
+  id: 12345
+});</code></pre>
+<hr>
+<h3 id="analytics"><code>Analytics</code></h3>
+<p><em>methods</em></p>
+<p><strong><code>initialize</code></strong></p>
+<p>Initialize the analytics tracking</p>
+<p>params: <code>Object{segmentWriteKey, sendAnalytics, account, user}</code></p>
+<p>properties:</p>
+<table>
+<tr style="border-bottom: 1px solid">
+  <td>Name</td>
+  <td>Required</td>
+  <td>Type</td>
+  <td>Default</td>
+  <td>Desciption</td>
+</tr>
+<tr>
+  <td>sendWriteKey</td>
+  <td>Yes</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>key for tracking</td>
+</tr>
+<tr>
+  <td>sendAnalytics</td>
+  <td>No</td>
+  <td>string</td>
+  <td>'YES'</td>
+  <td>flag to allow/disallow analytics tracking</td>
+</tr>
+<tr>
+  <td>account</td>
+  <td>Yes</td>
+  <td>JSON</td>
+  <td>N/A</td>
+  <td>account(company) information</td>
+</tr>
+<tr>
+  <td>user</td>
+  <td>Yes</td>
+  <td>JSON</td>
+  <td>N/A</td>
+  <td>user operator information</td>
+</tr>
+</table>
+
+
+<h4 id="usage-2">Usage</h4>
+<pre><code class="language-javascript">import { Analytics } from &#39;@cliengo/fe-utils&#39;;
+
+// Initialize the instance
+Analytics.initialize({
+  segmentWriteKey: &#39;XXXXXXXXX&#39;,
+  sendAnalytics: &#39;YES&#39;,
+  account: accountData,
+  user: useData
+});</code></pre>
+<p><strong><code>trackEvent</code></strong></p>
+<p>Wrapper around the Segment&#39;s trackEvent method.
+it is how you tell Segment about which actions your users are performing on your site.</p>
+<p>params: <code>Object{
+  eventName,
+  category,
+  action,
+  ...moreProps
+}</code></p>
+<p>properties:</p>
+<table>
+<tr style="border-bottom: 1px solid">
+  <td>Name</td>
+  <td>Required</td>
+  <td>Type</td>
+  <td>Default</td>
+  <td>Desciption</td>
+</tr>
+<tr>
+  <td>eventName</td>
+  <td>Yes</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>Name of the event</td>
+</tr>
+<tr>
+  <td>category</td>
+  <td>No</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>category of the event</td>
+</tr>
+<tr>
+  <td>action</td>
+  <td>No</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>usually matches with eventName</td>
+</tr>
+<tr>
+  <td>label</td>
+  <td>No</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>optional value</td>
+</tr>
+</table>
+
+<p><strong>rest of the properties depends on the case</strong></p>
+<h4 id="usage-3">Usage</h4>
+<pre><code class="language-javascript">import { Analytics } from &#39;@cliengo/fe-utils&#39;;
+
+Analytics.trackEvent({
+  eventName: &#39;user_registration&#39;,
+  category: &#39;register&#39;,
+  action: &#39;user_registration&#39;
+});</code></pre>
+<p><strong><code>trackPage</code></strong></p>
+<p>Wrapper around method Segment&#39;s page method.
+it lets you record page views on your website, along with optional information about the page being viewed.</p>
+<p>params:</p>
+<table>
+<tr style="border-bottom: 1px solid">
+  <td>Name</td>
+  <td>Required</td>
+  <td>Type</td>
+  <td>Default</td>
+  <td>Desciption</td>
+</tr>
+<tr>
+  <td>path</td>
+  <td>Yes</td>
+  <td>string</td>
+  <td>N/A</td>
+  <td>path of the page</td>
+</tr>
+<tr>
+  <td>websiteId</td>
+  <td>No</td>
+  <td>string</td>
+  <td>" " or undefined</td>
+  <td>id of selected website</td>
+</tr>
+<tr>
+  <td>url</td>
+  <td>No</td>
+  <td>string</td>
+  <td>window.location.href</td>
+  <td>url of current page</td>
+</tr>
+</table>
+
+<p><strong>rest of the properties depends on the case</strong></p>
+<h4 id="usage-4">Usage</h4>
+<pre><code class="language-javascript">import { Analytics } from &#39;@cliengo/fe-utils&#39;;
+
+Analytics.trackPage(&#39;/live/visitors&#39;);</code></pre>
+<hr>
+<h2 id="contributing">Contributing</h2>
+<ol>
+<li>Check out repo and create a branch</li>
+<li>Do your thing</li>
+<li>Bump version <strong>following <a href="https://semver.org/">SemVer</a></strong></li>
+<li>Transpile code with <code>yarn build</code></li>
+<li>Create a tag with the same name as the new version, <strong>otherwise the new version won&#39;t be downloadable!</strong> <code>git tag X.Y.Z</code></li>
+<li>Submit a PR</li>
+</ol>
+<p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</p>
+<p>Please make sure to update tests as appropriate.</p>
+
+                    </div>
+            <div class="search-result-container" id="search-result-container">
+                <h2 class="push-left">
+                    Search result for <i id="strToSearch"></i><br>
+                    <small>Total found: <span id="totFound"></span></small>
+                </h2>
+                <button class="close" onclick="closeSearchResult()">Close</button>
+                <div class="clear"></div>
+
+                <div id="search-result"></div>
+            </div>
+        <div class="toc-container" id="toc"><ul class="table-of-contents"><li class="toc-depth-1"><a href="#fe-utils-frontend-utils">fe-utils (Frontend utils)
+</a></li><li class="toc-depth-2"><a href="#installation">Installation
+</a></li><li class="toc-depth-2"><a href="#usage">Usage
+</a></li><li class="toc-depth-2"><a href="#available-functionality">Available functionality
+</a></li><li class="toc-depth-3"><a href="#copytoclipboard">copyToClipboard
+</a></li><li class="toc-depth-3"><a href="#isempty">isEmpty
+</a></li><li class="toc-depth-3"><a href="#iframemessagepublisher">IframeMessagePublisher
+</a></li><li class="toc-depth-4"><a href="#usage-1">Usage
+</a></li><li class="toc-depth-3"><a href="#analytics">Analytics
+</a></li><li class="toc-depth-4"><a href="#usage-2">Usage
+</a></li><li class="toc-depth-4"><a href="#usage-3">Usage
+</a></li><li class="toc-depth-4"><a href="#usage-4">Usage
+</a></li><li class="toc-depth-2"><a href="#contributing">Contributing
+</a></li></ul></div>
+                </div>
+                <div class="overlay hide-large" onclick="closeSidebarMenu()" id="overlayLayer"></div>
+
+                <script src="js/jquery.js"></script>
+                <script src="js/scripts.js"></script>
+                <script src="js/searchIndex.js"></script>
+            </body>
+        </html>
