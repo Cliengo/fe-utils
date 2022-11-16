@@ -192,8 +192,8 @@ import { Analytics } from '@cliengo/fe-utils';
 Analytics.initialize({
   segmentWriteKey: 'XXXXXXXXX',
   sendAnalytics: 'YES',
-  account: accountData,
-  user: useData
+  account: JsonObject,
+  user: JsonObject
 });
 ```
 

@@ -1,30 +1,20 @@
 declare module '@cliengo/fe-utils' {
   function copyToClipboard(value: string): boolean;
   function isEmpty(value: any): boolean;
-  interface IAccount {
-    name: string;
-    planName: string;
-    id: string;
-    whiteLabelId?: string;
-    vertical?: string;
-    registerRole?: string;
-    leadCount?: number;
-    labs?: { [key: string]: boolean };
-    language?: string;
-    countryId?: string;
-  }
 
-  interface IUser {
-    id: string;
-    email?: string;
-    privileges?: string;
-  }
+  export type JsonValue = string | number | boolean | JsonObject | JsonArray | undefined;
+
+  export type JsonObject = {
+    [key: string]: JsonValue;
+  };
+  
+  export type JsonArray = Array<JsonValue>;
 
   interface IAnalyticsInitializeParams {
     segmentWriteKey: string;
     sendAnalytics: string;
-    account: IAccount;
-    user: IUser;
+    account: JsonObject;
+    user: JsonObject;
   }
 
   interface ITrackEventProps {
