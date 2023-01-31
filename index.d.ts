@@ -1,4 +1,4 @@
-declare module '@cliengo/fe-utils' {
+declare module 'cliengo-fe-utils' {
   function copyToClipboard(value: string): boolean;
   function isEmpty(value: any): boolean;
 

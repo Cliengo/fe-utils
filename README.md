@@ -5,18 +5,18 @@ Js library to share useful methods
 ## Installation
 
 ```bash
-npm install git+https://github.com/Cliengo/fe-utils.git
+npm install cliengo-fe-utils
 ```
 
 **or**
 ```bash
-yarn add git+https://github.com/Cliengo/fe-utils.git
+yarn add cliengo-fe-utils
 ```
 
 ## Usage
 
 ```javascript
-import { method } from '@cliengo/fe-utils';
+import { method } from 'cliengo-fe-utils';
 
 method();
 ```
@@ -27,7 +27,7 @@ method();
 Takes a value to send it to clipboard asynchronously and returns a boolean to indicates success or failure
 
 ```javascript
-import { copyToClipboard } from '@cliengo/fe-utils';
+import { copyToClipboard } from 'cliengo-fe-utils';
 
 async function myFunction() {
   const hasSuccess = copyToClipboard('Hello world');
@@ -42,7 +42,7 @@ async function myFunction() {
 Takes a value and checks if it's any kind of empty
 
 ```javascript
-import { isEmpty } from '@cliengo/fe-utils';
+import { isEmpty } from 'cliengo-fe-utils';
 
 async function myFunction() {
   const value = isEmpty('Hello world');
@@ -121,7 +121,7 @@ params:
 
 #### Usage
 ```javascript
-import { IframeMessagePublisher } from '@cliengo/fe-utils';
+import { IframeMessagePublisher } from 'cliengo-fe-utils';
 
 // Initialize the instance
 IframeMessagePublisher.setInstance('my-project');
@@ -186,7 +186,7 @@ properties:
 
 #### Usage
 ```javascript
-import { Analytics } from '@cliengo/fe-utils';
+import { Analytics } from 'cliengo-fe-utils';
 
 // Initialize the instance
 Analytics.initialize({
@@ -251,7 +251,7 @@ properties:
 **rest of the properties depends on the case**
 #### Usage
 ```javascript
-import { Analytics } from '@cliengo/fe-utils';
+import { Analytics } from 'cliengo-fe-utils';
 
 Analytics.trackEvent({
   eventName: 'user_registration',
@@ -300,7 +300,7 @@ params:
 **rest of the properties depends on the case**
 #### Usage
 ```javascript
-import { Analytics } from '@cliengo/fe-utils';
+import { Analytics } from 'cliengo-fe-utils';
 
 Analytics.trackPage('/live/visitors');
 ```
