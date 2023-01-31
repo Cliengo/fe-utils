@@ -1,6 +1,6 @@
 {
-  "name": "@cliengo/fe-utils",
-  "version": "1.0.1",
+  "name": "cliengo-fe-utils",
+  "version": "1.0.0",
   "description": "Javascript shared methods",
   "main": "dist/index.js",
   "files": [
