@@ -305,6 +305,47 @@ import { Analytics } from 'cliengo-fe-utils';
 Analytics.trackPage('/live/visitors');
 ```
 
+**`setTraits`**
+
+Lets you set the information about the current user and account.
+
+params:
+<table>
+<tr style="border-bottom: 1px solid">
+  <td>Name</td>
+  <td>Required</td>
+  <td>Type</td>
+  <td>Default</td>
+  <td>Desciption</td>
+</tr>
+<tr>
+  <td>account</td>
+  <td>Yes</td>
+  <td>JSON</td>
+  <td>N/A</td>
+  <td>account(company) information</td>
+</tr>
+<tr>
+  <td>user</td>
+  <td>Yes</td>
+  <td>JSON</td>
+  <td>N/A</td>
+  <td>user operator information</td>
+</tr>
+</table>
+
+#### Usage
+```javascript
+import { Analytics } from 'cliengo-fe-utils';
+
+Analytics.setTraits(account, user);
+```
+
+**Some flags:**
+This utils set some flags at `window.analytics` level.
+
+- initialized
+- analyticsInAnonymousMode
 ***
 
 ## Contributing
