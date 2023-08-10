@@ -341,11 +341,33 @@ import { Analytics } from 'cliengo-fe-utils';
 Analytics.setTraits(account, user);
 ```
 
-**Some flags:**
-This utils set some flags at `window.analytics` level.
+**`isInitialized`**
 
-- initialized
-- analyticsInAnonymousMode
+Indicates if analytics script is already initialized.
+
+#### Usage
+```javascript
+import { Analytics } from 'cliengo-fe-utils';
+
+Analytics.isInitialized();
+```
+
+**`isAnonymousMode`**
+
+Indicates if analytics don't count with account and user information.
+
+#### Usage
+```javascript
+import { Analytics } from 'cliengo-fe-utils';
+
+Analytics.isAnonymousMode();
+```
+
+**Some flags:**
+This utils set some flags at `window` level.
+
+- window.analytics.initialized
+- window.analyticsInAnonymousMode
 ***
 
 ## Contributing

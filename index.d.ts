@@ -30,7 +30,9 @@ declare module 'cliengo-fe-utils' {
     public static initialize(params: IAnalyticsInitializeParams): void;
     public static trackEvent(eventProps: ITrackEventProps): void;
     public static trackPage(path: string, websiteId: string, url: string): void;
-    public static setTraits(account: JsonObject, user: JsonObject);
+    public static setTraits(account: JsonObject, user: JsonObject): void;
+    public static isInitialized(): boolean;
+    public static isAnonymousMode(): boolean;
   }
 
   export {
