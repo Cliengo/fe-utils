@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 1.0.8 - 2025-07-01
+
 ## 1.0.7 - 2023-08-10
 ### Fixed
 - Adding option chain expression to prevent javascript error
